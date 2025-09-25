@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000" # 必要に応じてポートを変更
+    volumes:
+      - .:/app # ホストとコンテナ間でコードを同期
+    environment:
+      - ENV=development # 必要な環境変数を設定
+    command: python app.py # アプリケーションの起動コマンド
